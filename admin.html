@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSU Event Hub - Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .stat-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        max-width: 1000px;
+        margin: 0 auto 1.5rem;
+      }
+      .stat-box {
+        background: #fff; padding: 1.25rem; border-radius: 12px;
+        border-left: 4px solid #1a3a6b;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      .stat-box h4 {
+        font-size: 0.8rem; text-transform: uppercase;
+        color: #6c757d; margin-bottom: 0.5rem; letter-spacing: 0.5px;
+      }
+      .stat-box .num { font-size: 1.8rem; font-weight: 700; color: #0f172a; }
+      .stat-box.pending { border-left-color: #f59e0b; }
+      .stat-box.regs    { border-left-color: #22c55e; }
+      .logout-btn {
+        background: #fee; color: #c00; border: 1px solid #fcc;
+        padding: 6px 14px; border-radius: 6px; cursor: pointer;
+        font-size: 13px; font-weight: 500;
+      }
+      .logout-btn:hover { background: #fcc; }
+    </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">DSU <span>Event Hub</span></div>
+  <div class="nav-links">
+    <span style="color:#cbd5e1;font-size:13px;">Admin Dashboard</span>
+  </div>
+</nav>
+
+<section id="admin">
+  <div class="page-header" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;">
+    <div>
+      <h1>Admin Dashboard</h1>
+      <p>Manage event approvals and campus-wide statistics</p>
+    </div>
+    <button class="logout-btn" onclick="adminLogout()">Logout</button>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <h4>Active Events</h4>
+      <div class="num" id="active-count">–</div>
+    </div>
+    <div class="stat-box pending">
+      <h4>Pending Requests</h4>
+      <div class="num" id="pending-count">–</div>
+    </div>
+    <div class="stat-box regs">
+      <h4>Total Registrations</h4>
+      <div class="num" id="regs-count">–</div>
+    </div>
+  </div>
+
+  <div class="upcoming" style="max-width: 1000px;">
+    <div style="background: white; padding: 1.5rem; border-radius: 12px; border: 0.5px solid #ddd;">
+      <h2 style="margin-bottom: 1rem;">Recent Event Requests</h2>
+      <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+        <thead>
+          <tr style="text-align: left; border-bottom: 2px solid #f8f9fa;">
+            <th style="padding: 12px;">Event Name</th>
+            <th>Organizer</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="admin-table-body">
+          <tr><td colspan="5" style="padding:1.5rem;text-align:center;color:#666;">Loading...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="upcoming" style="max-width: 1000px;">
+    <div style="background: white; padding: 1.5rem; border-radius: 12px; border: 0.5px solid #ddd;">
+      <h2 style="margin-bottom: 1rem;">Pending Student Registrations</h2>
+      <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+        <thead>
+          <tr style="text-align: left; border-bottom: 2px solid #f8f9fa;">
+            <th style="padding: 12px;">Student</th>
+            <th>USN</th>
+            <th>Event</th>
+            <th>Registered</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="admin-regs-body">
+          <tr><td colspan="5" style="padding:1.5rem;text-align:center;color:#666;">Loading...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<script src="scr.js"></script>
+</body>
+</html>

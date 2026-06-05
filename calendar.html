@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSU Event Hub - Calendar</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .cal-wrap {
+            background: #ffffff; border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(26, 58, 107, 0.08);
+            padding: 2.5rem; max-width: 900px;
+            margin: -20px auto 3rem; position: relative; z-index: 10;
+        }
+        .page-header { padding-bottom: 4rem; }
+        .cal-header {
+            display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 1rem;
+        }
+        .cal-header h2 { font-size: 22px; color: #1a3a6b; font-weight: 600; }
+        .cal-nav button {
+            background: #f8f9fa; border: 1px solid #e8edf5;
+            padding: 8px 16px; border-radius: 8px;
+            font-weight: 500; color: #1a3a6b; cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .cal-nav button:hover {
+            background: #1a3a6b; color: #FFD700; border-color: #1a3a6b;
+        }
+        .cal-grid {
+            display: grid; grid-template-columns: repeat(7, 1fr);
+            gap: 8px; margin-top: 1.5rem;
+        }
+        .cal-day-name {
+            background: transparent; color: #6c757d;
+            font-weight: 600; text-transform: uppercase;
+            font-size: 11px; letter-spacing: 1px;
+            text-align: center; padding: 8px 0;
+        }
+        .cal-cell {
+            background: #f8f9fa; border: 1px solid transparent;
+            border-radius: 12px; min-height: 90px; padding: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer; position: relative;
+        }
+        .cal-cell.empty { background: transparent; cursor: default; }
+        .cal-cell:hover:not(.empty) {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-color: #e8edf5;
+        }
+        .cal-cell .day-num {
+            font-size: 14px; font-weight: 600; color: #495057;
+            display: inline-block; width: 28px; height: 28px;
+            line-height: 28px; text-align: center; border-radius: 50%;
+        }
+        .cal-cell.today { background: #fff; border: 2px solid #1a3a6b; }
+        .cal-cell.today .day-num { background: #1a3a6b; color: #FFD700; }
+        .cal-cell.has-event { background: #f0f4f8; border: 1px solid #cce0ff; }
+        .cal-cell.has-event .day-num { color: #1a3a6b; }
+        .event-badge {
+            background: #FFD700; color: #1a3a6b;
+            font-size: 10px; font-weight: 600;
+            padding: 4px 6px; border-radius: 4px;
+            margin-top: 5px; display: block; text-align: center;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .event-badge.cultural { background: #8e2de2; color: white; }
+        .event-badge.sports   { background: #ff416c; color: white; }
+        .event-badge.workshop { background: #00b09b; color: white; }
+    </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">DSU <span>Event Hub</span></div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="events.html">Events</a>
+    <a href="login.html">Student Login</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="calendar.html" class="active">Calendar</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="register.html">Event Registration</a>
+  </div>
+</nav>
+
+<section id="calendar">
+  <div class="page-header">
+    <h1 id="month-display">Event Calendar</h1>
+    <p>Campus Events Schedule</p>
+  </div>
+  <div class="cal-wrap">
+    <div class="cal-header">
+      <h2 id="cal-month-year">Month Year</h2>
+      <div class="cal-nav">
+        <button onclick="changeMonth(-1)">&#8592; Prev</button>
+        <button onclick="changeMonth(1)">Next &#8594;</button>
+      </div>
+    </div>
+    <div class="cal-grid" id="calendar-grid"></div>
+  </div>
+</section>
+
+<script src="scr.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSU Event Hub - Feedback</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="logo">DSU <span>Event Hub</span></div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="events.html">Events</a>
+    <a href="login.html">Student Login</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="feedback.html" class="active">Feedback</a>
+    <a href="register.html">Event Registration</a>
+  </div>
+</nav>
+
+<section id="feedback">
+  <div class="page-header"><h1>Feedback</h1><p>Help us improve campus events</p></div>
+  <div class="fb-wrap">
+    <form id="feedbackForm" class="fb-card" onsubmit="event.preventDefault(); submitFeedback();">
+      <h3>Share your experience</h3>
+
+      <div class="fb-group">
+        <label>Event Name</label>
+        <select class="fb-event" required>
+          <option value="DSU Hackathon 2026">DSU Hackathon 2026</option>
+          <option value="Utsav Spring Fest">Utsav Spring Fest</option>
+          <option value="Inter-Dept Cricket">Inter-Dept Cricket</option>
+          <option value="AI & ML Bootcamp">AI &amp; ML Bootcamp</option>
+          <option value="Web Dev Challenge">Web Dev Challenge</option>
+          <option value="Photography Contest">Photography Contest</option>
+        </select>
+      </div>
+
+      <div class="fb-group">
+        <label>Overall Rating</label>
+        <div class="stars">
+          <span class="star" onclick="rate(1)">&#9733;</span>
+          <span class="star" onclick="rate(2)">&#9733;</span>
+          <span class="star" onclick="rate(3)">&#9733;</span>
+          <span class="star" onclick="rate(4)">&#9733;</span>
+          <span class="star" onclick="rate(5)">&#9733;</span>
+        </div>
+      </div>
+
+      <div class="fb-group">
+        <label>Your Name (optional)</label>
+        <input class="fb-name" type="text" placeholder="Anonymous">
+      </div>
+
+      <div class="fb-group">
+        <label>What did you like?</label>
+        <textarea class="fb-likes" placeholder="Tell us what went well..."></textarea>
+      </div>
+
+      <div class="fb-group">
+        <label>What can be improved?</label>
+        <textarea class="fb-improve" placeholder="Any suggestions..."></textarea>
+      </div>
+
+      <button type="submit" class="fb-submit">Submit Feedback</button>
+      <div class="success-msg" id="fb-success">Thank you! Your feedback has been submitted successfully.</div>
+    </form>
+  </div>
+</section>
+
+<script src="scr.js"></script>
+</body>
+</html>

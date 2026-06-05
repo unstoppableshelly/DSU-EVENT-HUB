@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSU Event Hub - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="logo">DSU <span>Event Hub</span></div>
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="events.html">Events</a>
+    <a href="login.html">Student Login</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="register.html">Event Registration</a>
+  </div>
+</nav>
+
+<section id="home">
+  <div class="hero">
+    <h1>Dayananda Sagar University</h1>
+    <p>Your one-stop platform to discover, register and track all campus events — hackathons, fests, workshops and more.</p>
+    <div class="hero-btns">
+      <a href="events.html" class="btn-primary" style="text-decoration:none;">Browse Events</a>
+      <a href="login.html" class="btn-outline" style="text-decoration:none;">Student Login</a>
+    </div>
+  </div>
+
+  <div class="upcoming">
+    <h2>Upcoming Events</h2>
+    <div class="event-grid" id="home-events">
+      <p style="grid-column:1/-1;text-align:center;color:#666;">Loading events...</p>
+    </div>
+  </div>
+</section>
+
+<script src="scr.js"></script>
+<script>
+  // Load first 3 upcoming approved events on home page
+  window.addEventListener('load', async () => {
+    const grid = document.getElementById('home-events');
+    try {
+      const res = await fetch('/api/events', { credentials: 'include' });
+      const events = await res.json();
+      const upcoming = events.slice(0, 3);
+      if (!upcoming.length) {
+        grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;">No upcoming events.</p>';
+        return;
+      }
+      grid.innerHTML = upcoming.map(ev => {
+        const d = new Date(ev.date).toLocaleDateString('en-US',
+          { year: 'numeric', month: 'short', day: 'numeric' });
+        return `
+          <div class="event-card" data-cat="${ev.category}">
+            <div class="event-card-top">
+              <div class="tag">${ev.category}</div>
+              <h3>${ev.name}</h3>
+            </div>
+            <div class="event-card-body">
+              <p>${d} &nbsp;|&nbsp; ${ev.venue || 'TBA'}</p>
+              <button class="reg-btn" onclick="goToRegister('${ev.name.replace(/'/g, "\\'")}')">Register Now</button>
+            </div>
+          </div>`;
+      }).join('');
+    } catch (err) {
+      grid.innerHTML = `<p style="grid-column:1/-1;color:#c00;">Could not load events.</p>`;
+    }
+  });
+</script>
+</body>
+</html>

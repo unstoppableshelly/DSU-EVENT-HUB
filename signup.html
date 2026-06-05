@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSU Event Hub - Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="logo">DSU <span>Event Hub</span></div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="events.html">Events</a>
+    <a href="login.html">Student Login</a>
+    <a href="signup.html" class="active">Sign Up</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="register.html">Event Registration</a>
+  </div>
+</nav>
+
+<section id="signup">
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="brand">
+        <div class="circle"><span>DSU</span></div>
+        <p>Dayananda Sagar University</p>
+      </div>
+      <h2>Create Account</h2>
+      <form id="registrationForm" onsubmit="handleSignup(event)">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input class="full-name" type="text" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+          <label>USN / Register Number</label>
+          <input class="usn" type="text" placeholder="e.g. 1DS23CS001" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input class="email" type="email" placeholder="name@dsu.edu.in" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input class="password" type="password" placeholder="Create a password" required>
+        </div>
+        <button type="submit" class="submit-btn">Register Now</button>
+      </form>
+      <div class="login-footer">
+        Already have an account? <a href="login.html">Login here</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="scr.js"></script>
+</body>
+</html>

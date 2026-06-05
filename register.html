@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSU Event Hub - Event Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .reg-form-card {
+            background: #fff;
+            border: 0.5px solid #e8edf5;
+            border-radius: 16px;
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(26, 58, 107, 0.08);
+        }
+        .reg-form-card h2 { color: #1a3a6b; text-align: center; margin-bottom: 0.5rem; }
+        .reg-form-card p.subtitle {
+            text-align: center; color: #6c757d; font-size: 14px; margin-bottom: 2rem;
+        }
+        .info-note {
+            background: #e8edf5;
+            border-left: 3px solid #1a3a6b;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            font-size: 13px;
+            color: #1a3a6b;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">DSU <span>Event Hub</span></div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="events.html">Events</a>
+    <a href="login.html">Student Login</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="register.html" class="active">Event Registration</a>
+  </div>
+</nav>
+
+<section id="registration-page">
+  <div class="login-wrap">
+    <div class="reg-form-card">
+      <h2>Register for an Event</h2>
+      <p class="subtitle">Secure your spot in upcoming campus activities</p>
+
+      <div class="info-note">
+        ℹ️ Your name and USN will be taken from your student account.
+        After registering, you can track approval status under <strong>My Registrations</strong>.
+      </div>
+
+      <form id="eventRegForm" onsubmit="handleEventRegister(event)">
+        <div class="form-group">
+          <label>Select Event</label>
+          <select class="event-select"
+                  style="width: 100%; padding: 9px 12px; border: 0.5px solid #ccc;
+                         border-radius: 8px; font-size: 14px; background: #fff; color: #333;"
+                  required>
+            <option value="" disabled selected>-- Loading events --</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Department / Branch</label>
+          <input class="department" type="text" placeholder="e.g. Computer Science" required>
+        </div>
+
+        <button type="submit" class="submit-btn" style="margin-top: 1rem;">Confirm Registration</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script src="scr.js"></script>
+</body>
+</html>

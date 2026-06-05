@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSU Event Hub - Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="logo">DSU <span>Event Hub</span></div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="events.html">Events</a>
+    <a href="login.html">Student Login</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="contact.html" class="active">Contact Us</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="register.html">Event Registration</a>
+  </div>
+</nav>
+
+<section id="contact">
+  <div class="page-header"><h1>Contact Us</h1><p>Reach out to the DSU Events team</p></div>
+  <div class="contact-wrap">
+    <div class="contact-grid">
+      <div class="contact-info-card">
+        <h3>Get in touch</h3>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <p>Dayananda Sagar University<br>Kudlu Gate, Hosur Road<br>Bengaluru – 560068</p>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <p>events@dsu.edu.in</p>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+          </div>
+          <p>+91 7806081007</p>
+        </div>
+        <div style="margin-top:1rem;padding:0.75rem;background:#e8edf5;border-radius:8px;">
+          <p style="font-size:12px;color:#1a3a6b;font-weight:500;">Office Hours</p>
+          <p style="font-size:12px;color:#555;margin-top:3px;">Mon – Fri: 9:00 AM – 5:00 PM</p>
+        </div>
+      </div>
+
+      <form id="contactForm" class="contact-form-card" onsubmit="handleContact(event)">
+        <h3>Send a message</h3>
+        <div class="cf-group"><label>Your Name</label>
+          <input class="cf-name" type="text" placeholder="Full name" required></div>
+        <div class="cf-group"><label>Email</label>
+          <input class="cf-email" type="email" placeholder="your@email.com" required></div>
+        <div class="cf-group"><label>Subject</label>
+          <select class="cf-subject">
+            <option>Event Query</option>
+            <option>Registration Issue</option>
+            <option>General</option>
+          </select>
+        </div>
+        <div class="cf-group"><label>Message</label>
+          <textarea class="cf-message" placeholder="Type your message here..." required></textarea></div>
+        <button type="submit" class="cf-send">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script src="scr.js"></script>
+</body>
+</html>

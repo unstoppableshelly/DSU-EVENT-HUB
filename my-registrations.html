@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSU Event Hub - My Registrations</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .my-regs-wrap {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .reg-card {
+            background: #fff;
+            border: 1px solid #e8edf5;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: box-shadow 0.2s ease;
+        }
+        .reg-card:hover {
+            box-shadow: 0 4px 16px rgba(26,58,107,0.1);
+        }
+        .reg-card-left h3 {
+            color: #1a3a6b;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .reg-meta {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 2px;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">DSU <span>Event Hub</span></div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="events.html">Events</a>
+    <a href="login.html">Student Login</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="register.html">Event Registration</a>
+  </div>
+</nav>
+
+<section id="my-registrations">
+  <div class="page-header">
+    <h1>My Registrations</h1>
+    <p>Track the approval status of your event registrations</p>
+  </div>
+  <div class="my-regs-wrap">
+    <div id="my-regs-list">
+      <p style="text-align:center;padding:2rem;color:#666;">Loading your registrations...</p>
+    </div>
+  </div>
+</section>
+
+<script src="scr.js"></script>
+</body>
+</html>
